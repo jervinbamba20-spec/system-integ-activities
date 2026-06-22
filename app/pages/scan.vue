@@ -1,0 +1,3 @@
+<template>
+<Qr-Scanner/>
+</template>
