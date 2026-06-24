@@ -18,16 +18,23 @@
 
     <h3  style="margin-top: 30px;">Or</h3>
     <v-btn block variant="elevated" color="red" style="margin-top: 10px;"
-     @click= "loginWithGoogle"
-     >Sign in with Google</v-btn>
+     @click= "loginWithGoogle">Sign in with Google</v-btn>
 
     </v-card>
   </div>
   
 </template>
 
+
+
+
 <script lang="ts" setup>
 //@ts-nocheck
+
+definePageMeta({
+ middleware: 'auth'
+ })
+
 
 
 const config = useRuntimeConfig()
@@ -50,8 +57,8 @@ const loginWithGoogle =  () => {
       
       }
   })
-      localStorage.setItem('google-user', JSON.stringify(userInfo))
-      localStorage.setItem('google-token', response.access_token)
+      localStorage.setItem('google_user', JSON.stringify(userInfo))
+      localStorage.setItem('google_token', response.access_token)
 
       navigateTo('/')
 
@@ -60,6 +67,10 @@ const loginWithGoogle =  () => {
 
  client.requestAccessToken()  
 }
+
+
+
+ 
 </script>
 
 <style>
@@ -67,3 +78,6 @@ const loginWithGoogle =  () => {
 
 
 </style>
+
+
+
