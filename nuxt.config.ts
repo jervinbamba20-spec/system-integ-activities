@@ -1,13 +1,26 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+
+  devtools: {
+    enabled: true,
+  },
+
+  css: [
+    'leaflet/dist/leaflet.css',
+  ],
+
   build: {
     transpile: ['vuetify'],
   },
+
   vite: {
     plugins: [
-      vuetify({ autoImport: true }),
+      vuetify({
+        autoImport: true,
+      }),
     ],
     vue: {
       template: {
@@ -16,11 +29,10 @@ export default defineNuxtConfig({
     },
   },
 
-
   runtimeConfig: {
     public: {
-      //@ts-ignore
-      googleClientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID
-    }
-  }
+      // @ts-ignore
+      googleClientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID || '',
+    },
+  },
 })
