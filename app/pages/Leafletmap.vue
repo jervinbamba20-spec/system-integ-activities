@@ -38,7 +38,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.map {
+.map-container{
   width: 100%;
   height: 500px;
   border-radius: 10px;

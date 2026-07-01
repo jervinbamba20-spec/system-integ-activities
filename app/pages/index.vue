@@ -22,6 +22,7 @@
 
           <v-divider class="mb-6" />
 
+          <!-- QR BUTTON -->
           <v-btn
             color="primary"
             prepend-icon="mdi-qrcode-scan"
@@ -32,6 +33,7 @@
             Open QR Scanner
           </v-btn>
 
+          <!-- MAP BUTTON -->
           <v-btn
             color="success"
             prepend-icon="mdi-map"
@@ -42,6 +44,18 @@
             Open Map
           </v-btn>
 
+          <!-- WEATHER BUTTON -->
+          <v-btn
+            color="info"
+            prepend-icon="mdi-weather-partly-cloudy"
+            block
+            class="mb-3"
+            @click="openWeather"
+          >
+            Check Weather
+          </v-btn>
+
+          <!-- LOGOUT BUTTON -->
           <v-btn
             color="error"
             prepend-icon="mdi-logout"
@@ -57,13 +71,16 @@
   </v-container>
 </template>
 
+
 <script setup lang="ts">
 
 definePageMeta({
   middleware: "auth"
 })
 
+
 const user = ref<any>(null)
+
 
 onMounted(() => {
   const savedUser = localStorage.getItem("google_user")
@@ -76,16 +93,25 @@ onMounted(() => {
   user.value = JSON.parse(savedUser)
 })
 
-/* ✅ FIX: QR button function */
+
 const openQr = () => {
-  navigateTo("/qr") 
+  navigateTo("/qr")
 }
+
 
 const openMap = () => {
   navigateTo("/mymap")
 }
 
+
+// WEATHER FUNCTION
+const openWeather = () => {
+  navigateTo("/weather")
+}
+
+
 const logout = () => {
+
   localStorage.removeItem("google_user")
   localStorage.removeItem("google_token")
 
@@ -93,15 +119,20 @@ const logout = () => {
 
   navigateTo("/login")
 }
+
 </script>
 
+
 <style scoped>
+
 .dashboard-bg {
   background: white;
   min-height: 100vh;
 }
 
+
 .fill-height {
   min-height: 100vh;
 }
+
 </style>

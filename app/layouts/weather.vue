@@ -5,7 +5,7 @@
 </template>
 
 <style>
-/* Ginagamit ang walang 'scoped' para maapektuhan pati ang mga parent containers ng Nuxt */
+
 html, body, #__nuxt, .v-application, .v-application__wrap {
   background: transparent !important;
   background-color: transparent !important;
@@ -14,7 +14,7 @@ html, body, #__nuxt, .v-application, .v-application__wrap {
 
 <style scoped>
 .weather-layout-wrapper {
-  background-image: url('/image/background.jpg');
+  background: url("/image/mokiii.jpg") center center / cover no-repeat;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,7 +25,7 @@ html, body, #__nuxt, .v-application, .v-application__wrap {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   
   display: flex;
